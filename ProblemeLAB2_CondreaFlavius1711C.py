@@ -1,3 +1,7 @@
+import sys
+import time
+
+
 def problema_1():
     
     
@@ -159,6 +163,9 @@ while choice !=0:
         problema_4()
     elif choice == 5:
         problema_5()
+    elif choice == 0:
+        sys.exit("      Exiting...")
+        time.sleep(1.5)
     else:
         print("Please provide a valid option")
         

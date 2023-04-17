@@ -5,6 +5,9 @@ Created on Thu Apr  13 2:15:30 2023
 @author: student
 """
 
+import sys
+import time
+
 '''
 Pe un stadion există trei categorii de locuri.
 Locurile din clasa A costă 20 dolari, locurile din clasa B costă 15 dolari, iar locurile din clasa C costă 10 dolari.
@@ -21,6 +24,12 @@ def problema_1():
   locuri_B = int(input("Cate locuri de tip \"B\" au fost vandute ->> "))
   locuri_C = int(input("Cate locuri de tip \"C\" au fost vandute ->> "))
 
+  def suma_generata(**locuri_pret):
+    suma_A = locuri_pret["A"] * 20
+    suma_B = locuri_pret["B"] * 15
+    suma_C = locuri_pret["C"] * 10
+    return suma_A, suma_B, suma_C
+
   suma_A, suma_B, suma_C = suma_generata(A=locuri_A, B=locuri_B, C=locuri_C)
   print_dict = {"A": suma_A, "B": suma_B, "C": suma_C}
   
@@ -28,11 +37,7 @@ def problema_1():
   print_slots(A=locuri_A, B=locuri_B, C=locuri_C)
   print(print_dict)
 
-  def suma_generata(**locuri_pret):
-    suma_A = locuri_pret["A"] * 20
-    suma_B = locuri_pret["B"] * 15
-    suma_C = locuri_pret["C"] * 10
-    return suma_A, suma_B, suma_C
+
 
 
 '''
@@ -254,4 +259,37 @@ def problema_7():
 
   din_doi_in_doi(10)
 
-problema_7()
+
+choice = 3 #just a random number pentru ca python != c++ si nu are swtich case -_-
+
+while choice !=0:
+    choice = int(input('''      1.Problema nr1
+      2.Problmea nr2
+      3.Problmea nr3
+      4.Problema nr4
+      5.Problema nr5
+      6.Problema nr6
+      7.Problema nr7
+      0.EXIT
+      '''))
+    
+    if choice == 1:
+        problema_1()
+    elif choice == 2:
+        problema_2()
+    elif choice == 3:
+        problema_3()
+    elif choice == 4:
+        problema_4()
+    elif choice == 5:
+        problema_5()
+    elif choice == 6:
+        problema_6()
+    elif choice == 7:
+        problema_7()
+    elif choice == 0:
+        sys.exit("      Exiting...")
+        time.sleep(1.5)
+    else:
+        print("Please provide a valid option")
+        

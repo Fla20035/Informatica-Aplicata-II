@@ -16,6 +16,8 @@ Urmează indicațiile:
   •Dacă numărul nu este între 1 și 12, programul ar trebui să afișeze o eroare.
 '''
 
+import sys
+import time
 
 def problema_1():
   month = int(input("Introduceti luna ->> "))
@@ -148,26 +150,30 @@ def problema_5():
         sold_datorat -= capital_lunar
         print("{:<10} {:<20.2f} {:<20.2f} {:<20.2f} {:<20.2f} {:<20.2f}".format(
             luna, sold_datorat, dob_lunara, capital_lunar, plata_lunară, sold_datorat))
+        
+choice = 3
 
-while True:
-    print("Selectati o optiune:")
-    print("1. Problema 1")
-    print("2. Problema 2")
-    print("3. Problema 3")
-    print("4. Problema 4")
-    print("5. Problema 5")
-    print("0. Exit")
-    option = input("Introduceti numarul optiunii: ")
+while choice !=0:
+    choice = int(input('''      1.Problema nr1
+      2.Problmea nr2
+      3.Problmea nr3
+      4.Problema nr4
+      5.Problema nr5
+      0.EXIT
+      '''))
     
-    if option == "1":
+    if choice == 1:
         problema_1()
-    elif option == "2":
+    elif choice == 2:
         problema_2()
-    elif option == "3":
+    elif choice == 3:
         problema_3()
-    elif option == "4":
+    elif choice == 4:
         problema_4()
-    elif option == "0":
-        break
+    elif choice == 5:
+        problema_5()
+    elif choice == 0:
+        sys.exit("      Exiting...")
+        time.sleep(1.5)
     else:
-        print("Va rog introduceti o optiune valida.")
+        print("Please provide a valid option")

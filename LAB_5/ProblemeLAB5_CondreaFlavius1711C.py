@@ -8,4 +8,9 @@ Utilizați fișierul create pentru a scrieun program care calculează media arit
 '''
 
 def problema_1():
+    with open ('numere.txt', 'r') as f :
+        lista_numere = [line.strip() for line in f] 
+        print(lista_numere)
     
+ 
+problema_1()

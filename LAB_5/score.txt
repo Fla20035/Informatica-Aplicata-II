@@ -1,0 +1,5 @@
+Flavius	--	100
+Marius	--	20
+Andrei	--	40
+Cristian 	--	70
+Popescu 	--	10

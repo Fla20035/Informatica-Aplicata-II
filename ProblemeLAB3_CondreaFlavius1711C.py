@@ -151,7 +151,7 @@ def problema_5():
         print("{:<10} {:<20.2f} {:<20.2f} {:<20.2f} {:<20.2f} {:<20.2f}".format(
             luna, sold_datorat, dob_lunara, capital_lunar, plata_lunară, sold_datorat))
         
-choice = 3
+choice = 3 #?
 
 while choice !=0:
     choice = int(input('''      1.Problema nr1

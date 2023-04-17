@@ -260,7 +260,7 @@ def problema_7():
   din_doi_in_doi(10)
 
 
-choice = 3 #just a random number pentru ca python != c++ si nu are swtich case -_-
+choice = 3 #?
 
 while choice !=0:
     choice = int(input('''      1.Problema nr1

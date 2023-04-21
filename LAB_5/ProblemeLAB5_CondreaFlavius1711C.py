@@ -9,31 +9,41 @@ Utilizați fișierul create pentru a scrieun program care calculează media arit
 '''
 
 def problema_1():
-
-
-    filename = input("Numele fisierului (nu uitati de formatul acestuia .txt):: ") #.txt la final!
-
-
+    while True:
+        try:
+            filename = input("Numele fisierului (nu uitati de formatul acestuia .txt):: ") #.txt la final!
+            with open(filename, 'w') as file:
+                break
+        except IOError:
+            print("Eroare la deschiderea fisierului! Verificati daca numele fisierului este corect sau daca aveti permisiunea necesara.")
+    
     numbers = []
     while True:
-        num = input("Introduceti un numar(sau 'q' ca sa iesiti):: ")
-        if num == 'q':
-            break
-        numbers.append(int(num))
-
-    with open(filename, 'w') as file:
-        for num in numbers:
-            file.write(f"{num}\n")
-
+        try:
+            num = input("Introduceti un numar(sau 'q' ca sa iesiti):: ")
+            if num == 'q':
+                break
+            numbers.append(int(num))
+        except ValueError:
+            print("Valoarea introdusa nu este un numar intreg!")
+    
+    try:
+        with open(filename, 'w') as file:
+            for num in numbers:
+                file.write(f"{num}\n")
+    except IOError:
+        print("Eroare la scrierea in fisier!")
+    
     def medie_lista(numbers):
         return sum(numbers) / len(numbers)
     
-    average = medie_lista(numbers)
-    print("Media aritmetica a numerelor din fisier este = ", round(average, 2))
-
-    with open(filename, 'a') as file:
-        file.write(f"Media aritmetica a numerelor de mai sus este ->> {average}\n\n\n")
-
+    try:
+        average = medie_lista(numbers)
+        print("Media aritmetica a numerelor din fisier este = ", round(average, 2))
+        with open(filename, 'a') as file:
+            file.write(f"Media aritmetica a numerelor de mai sus este ->> {average}\n\n\n")
+    except (ValueError, ZeroDivisionError, IOError):
+        print("Eroare la prelucrarea datelor!")
 
 '''
 Scrieți un program care citește și salvează într-un fișier numit score.txt, o serie de înregistrări, fiecare cu două câmpuri: 
@@ -73,18 +83,39 @@ def problema_3():
             f.write(cuvant + "\n")
     choice = str(input("Doriti sa continuati si cu problema 4 (Y/N) ? :: ").lower())
 
-    def problema_4(nr_cuvinte):
-        print(nr_cuvinte)
+    def problema_4(nr_cuvinte, cuvinte, cuvant):
+        print(f"Numarul de cuvinte ->> {nr_cuvinte}")
+        cuvant_lung = max(cuvinte, key=len)
+        print(f"Cel mai lung cuvant din lista este ->> {cuvant_lung}")
+        average = sum(len(cuvant) for cuvant in cuvinte) / nr_cuvinte
+        print(f"Media lungimii cuvintelor este ->> {average}")
 
     if choice == 'y':
-        problema_4(nr_cuvinte)
+        problema_4(nr_cuvinte, cuvinte, cuvant)
     elif choice == 'n':
         sys.exit()
     else:
         print("INVALID")
         time.sleep(2)
         sys.exit()
+
+choice = 3 #?
+
+while choice !=0:
+    choice = int(input('''      1.Problema nr1
+      2.Problmea nr2
+      3.Problmea nr3
+      0.EXIT
+      '''))
     
-
-
-problema_3()
+    if choice == 1:
+        problema_1()
+    elif choice == 2:
+        problema_2()
+    elif choice == 3:
+        problema_3()
+    elif choice == 0:
+        sys.exit("      Exiting...")
+        time.sleep(1.5)
+    else:
+        print("Please provide a valid option")
